@@ -57,7 +57,7 @@ terragrunt apply
 5. On each account create cloudadmin IAM user, then attach directly existing policy `AdministratorAccess` to it.
 6. Configure MFA for each cloudadmin user.
 7. Generate AWS_ACCESS_KEY_ID and AWS_ACCESS_SECRET_KEY for each cloudadmin user.
-8. Execute `cd microcloud-management/settings/organization && terragrunt run-all apply` and then attach AWS accounts to appropriate
+8. Execute `cd microcloud-management/.settings/organization && terragrunt apply` and then attach AWS accounts to appropriate
 organizational units.
 
 # Project structure
