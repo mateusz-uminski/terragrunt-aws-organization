@@ -12,4 +12,4 @@ mcd_aws_account_id_prod: "111111111111"
 
 # stack variables
 # microcloud-management/.settings/monthly-budget
-budget_email_address: recipient@domain.com
+monthly_budget_email_address: recipient@domain.com

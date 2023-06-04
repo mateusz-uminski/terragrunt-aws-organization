@@ -5,7 +5,7 @@ include "root" {
 locals {
   config_vars = yamldecode(file(find_in_parent_folders("config.yaml")))
 
-  email_address = local.config_vars.budget_email_address
+  email_address = local.config_vars.monthly_budget_email_address
 }
 
 inputs = {
