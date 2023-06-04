@@ -3,6 +3,7 @@ clean: remove-cache remove-locks
 
 .PHONY: remove-cache
 remove-cache:
+	find . -type d -name ".terraform" -prune -exec rm -rf {} \;
 	find . -type d -name ".terragrunt-cache" -prune -exec rm -rf {} \;
 
 .PHONY: remove-locks
