@@ -1,4 +1,6 @@
 locals {
+  org_abbreviated_name = "mcd"
+
   account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
   account_name = local.account_vars.locals.account_name
   account_id   = local.account_vars.locals.aws_account_id
@@ -61,4 +63,15 @@ remote_state {
     path      = "backend-gen.tf"
     if_exists = "overwrite_terragrunt"
   }
+}
+
+generate "variables" {
+  path      = "variable-gen.tf"
+  if_exists = "overwrite_terragrunt"
+  contents  = <<-EOF
+    variable "org_abbreviated_name" {
+      type    = string
+      default = "${local.org_abbreviated_name}"
+    }
+  EOF
 }
