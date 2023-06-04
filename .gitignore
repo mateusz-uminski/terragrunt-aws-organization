@@ -30,5 +30,6 @@ override.tf.json
 
 # custom
 config.yaml
-.terraform.lock.hcl
+.terraform
 .terragrunt-cache
+*-gen.tf

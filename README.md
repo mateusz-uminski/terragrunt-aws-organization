@@ -28,60 +28,83 @@ terragrunt run-all apply
 2. Deploy selected modules
 - plan
 ```sh
-cd dev-microcloud/eu-central-1/bootstrap/network
+cd microcloud-nonprod/us-east-1
 terragrunt run-all plan
 ```
 - apply
 ```sh
-cd dev-microcloud/eu-central-1/bootstrap/network
+cd microcloud-nonprod/us-east-1
 terragrunt run-all apply
+```
+3. Deploy selected module
+- plan
+```sh
+cd microcloud-nonprod/us-east-1/stackA/dev
+terragrunt plan
+```
+- apply
+```sh
+cd microcloud-nonprod/us-east-1/stackA/dev
+terragrunt apply
 ```
 
 # How to prepare an AWS Organization?
-1. Create at least 3 (5 is ideal) AWS account: one for the management account, one for shared/central services such as IAM
- and one account for each environment (I decided for only one environment account to minimize costs).
+1. Create at least 4 AWS account: one for the management account, one for shared/central services such as Route53,
+ one nonprod account and one prod account.
 2. Configure MFA on each account.
 3. Create an AWS Organization on management account, set consolidated billing and invite other accounts to the organization.
 4. Enable SCP in the organization.
 5. On each account create cloudadmin IAM user, then attach directly existing policy `AdministratorAccess` to it.
 6. Configure MFA for each cloudadmin user.
 7. Generate AWS_ACCESS_KEY_ID and AWS_ACCESS_SECRET_KEY for each cloudadmin user.
-8. Execute `cd mgmt-microcloud/us-east-1/organization && terragrunt run-all apply` and then attach AWS accounts to appropriate
+8. Execute `cd microcloud-management/settings/organization && terragrunt run-all apply` and then attach AWS accounts to appropriate
 organizational units.
 
 # Project structure
-Note: modules that configure global services should be places in the us-east-1 directory.
+Note: modules that configure either account or region should be placed in the `.settings` directory.
 The code in this repo uses the following project structure ():
 ```
 |
-| - mgmt-account
-| | - us-east-1
-| | | - organization
-| | | - scp
-|
-| - shared-account
-| | - us-east-1
-| | | - iam-groups
-| | | - iam-roles
-| | | - iam-users
-| |
-| | - eu-central-1
-| | | - environment (dev, stage, prod)
-| | | | - network
-| | | | - projectA
-|
-| - dev-account
-| | - us-east-1
-| | | - projectA
-| | | - environment (dev, stage, prod)
-| | | | - network
-| | | | - projectB
-| |
-| | - eu-central-1
-| | | - environment (dev, stage, prod)
-| | | | - network
-| | | | - projectC
+| account-name/
+| | region-name/
+| | | stack-name/
+| | | | environment/
+| | | | | - terragrunt.hcl
+| | | | | - main.tf
 ...
+```
+
+For instance:
+```
+| account-nonprod/
+| | us-east-1/
+| | | .settings/
+| | | | vpc/
+| | | | | - main.tf
+| | | | | - terragrunt.hcl
+| | | stackA/
+| | | | dev/
+| | | | | - terragrunt.hcl
+| | | | | - main.tf
+| | | - region.hcl
+| |
+| | .settings/
+| | | stackB/
+| | | | - terragrunt.hcl
+| | | | - main.tf
+| |
+| | eu-west-1/
+| | | .settings/
+| | | | vpc/
+| | | | | - main.tf
+| | | | | - terragrunt.hcl
+| | | stackC/
+| | | | dev/
+| | | | | - terragrunt.hcl
+| | | | | - main.tf
+| | | - region.hcl
+| |
+| | - account.hcl
 ```
 
 # Organization: microcloud
@@ -92,7 +115,7 @@ The code in this repo uses the following project structure ():
 - [Resource naming convention](##resource-naming-convention)
 
 ## Organization design
-![](docs/organization-design.png)
+![](docs/organization-design.drawio.svg)
 
 
 ## IAM Design
