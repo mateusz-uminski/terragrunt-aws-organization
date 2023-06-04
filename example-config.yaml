@@ -1,6 +1,8 @@
 # This file should be used as an example when creating the config.yaml file.
 # The config.yaml file should only contain variables that we do not want to
 # accidentally commit.
+#
+# All variables listed in this file are required!
 
 # common variables
 mcd_aws_account_id_mgmt: "111111111111"
@@ -8,10 +10,6 @@ mcd_aws_account_id_shared: "111111111111"
 mcd_aws_account_id_nonprod: "111111111111"
 mcd_aws_account_id_prod: "111111111111"
 
-# module variables
-## module1 variables
-module1_variable_name1: example_value
-module1_variable_name2: example_value
-## module 2 variables
-module2_variable_name1: example_value
-module2_variable_name2: example_value
+# stack variables
+# microcloud-management/.settings/monthly-budget
+monthly_budget_email_address: recipient@domain.com
