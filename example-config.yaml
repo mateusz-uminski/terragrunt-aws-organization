@@ -15,3 +15,6 @@ module1_variable_name2: example_value
 ## module 2 variables
 module2_variable_name1: example_value
 module2_variable_name2: example_value
+
+# required variables
+budget_email_address: recipient@domain.com
