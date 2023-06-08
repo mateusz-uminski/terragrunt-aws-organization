@@ -66,7 +66,7 @@ remote_state {
 }
 
 generate "variables" {
-  path      = "variable-gen.tf"
+  path      = "variables-gen.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<-EOF
     variable "org_abbreviated_name" {
