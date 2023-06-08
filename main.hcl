@@ -3,7 +3,7 @@ locals {
 
   account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
   account_name = local.account_vars.locals.account_name
-  account_id   = local.account_vars.locals.aws_account_id
+  account_id   = local.account_vars.locals.account_id
   aws_profile  = local.account_vars.locals.aws_profile
 
   region_vars = read_terragrunt_config(find_in_parent_folders("region.hcl", "i_dont_exist.hcl"), {
@@ -72,6 +72,11 @@ generate "variables" {
     variable "org_abbreviated_name" {
       type    = string
       default = "${local.org_abbreviated_name}"
+    }
+
+    variable "account_id" {
+      type    = string
+      default = "${local.account_id}"
     }
   EOF
 }
