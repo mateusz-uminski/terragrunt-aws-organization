@@ -5,10 +5,10 @@
 # All variables listed in this file are required!
 
 # common variables
-mcd_aws_account_id_mgmt: "111111111111"
-mcd_aws_account_id_shared: "111111111111"
-mcd_aws_account_id_nonprod: "111111111111"
-mcd_aws_account_id_prod: "111111111111"
+mcd_account_id_mgmt: "111111111111"
+mcd_account_id_shared: "111111111111"
+mcd_account_id_nonprod: "111111111111"
+mcd_account_id_prod: "111111111111"
 
 # stack variables
 # microcloud-management/.settings/monthly-budget
