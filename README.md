@@ -16,38 +16,6 @@ Terragrunt use terraform modules from this repository: [terraform-aws-modules](h
 # How to use?
 0. Create config.yaml in the project's root directory according to the example-config.yaml
 
-1. Deploy all modules
-- plan all
-```sh
-terragrunt run-all plan
-```
-- apply all
-```sh
-terragrunt run-all apply
-```
-2. Deploy selected modules
-- plan
-```sh
-cd microcloud-nonprod/us-east-1
-terragrunt run-all plan
-```
-- apply
-```sh
-cd microcloud-nonprod/us-east-1
-terragrunt run-all apply
-```
-3. Deploy selected module
-- plan
-```sh
-cd microcloud-nonprod/us-east-1/stackA/dev
-terragrunt plan
-```
-- apply
-```sh
-cd microcloud-nonprod/us-east-1/stackA/dev
-terragrunt apply
-```
-
 # How to prepare an AWS Organization?
 1. Create at least 4 AWS account: one for the management account, one for shared/central services such as Route53,
  one nonprod account and one prod account.
@@ -115,6 +83,16 @@ For instance:
 - [Resource naming convention](##resource-naming-convention)
 
 ## Organization design
+
+The microcloud organization operates in the following regions:
+- us-east-1
+- eu-west-1
+Creation of the resources in other regions is prohibited by Service Control Policy (SCP)
+
+In the organization there are two main projects:
+- micropost: it is an yet another blog web application
+- microdata: it is an data engineering platform
+
 ![](docs/organization-design.drawio.svg)
 
 
