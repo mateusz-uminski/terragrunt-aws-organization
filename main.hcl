@@ -78,5 +78,10 @@ generate "variables" {
       type    = string
       default = "${local.account_id}"
     }
+
+    variable "account_name" {
+      type    = string
+      default = "${local.account_name}"
+    }
   EOF
 }
