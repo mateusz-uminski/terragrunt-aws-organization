@@ -1,6 +1,7 @@
 # Organization design
+
 The microcloud organization operates in the following regions:
-- us-east-1
+- us-east-1 (default region)
 - eu-west-1
 
 Creation of the resources in other regions is prohibited by Service Control Policy (SCP)

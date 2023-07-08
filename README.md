@@ -41,7 +41,7 @@ organizational units.
 
 # Project structure
 Note: modules that configure either account or region should be placed in the `.settings` directory.
-The code in this repo uses the following project structure ():
+The code in this repo uses the following project structure:
 ```
 |
 | account-name/
