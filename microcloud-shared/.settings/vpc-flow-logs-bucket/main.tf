@@ -4,7 +4,7 @@ variable "allowed_account_ids" {
 }
 
 module "vpc_flow_logs_bucket" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc-flow-logs-bucket?ref=vpc-flow-logs-bucket/v0.1.0"
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc-flow-logs-bucket?ref=vpc-flow-logs-bucket/v0.1.1"
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
@@ -16,4 +16,8 @@ module "vpc_flow_logs_bucket" {
 
 output "arn" {
   value = module.vpc_flow_logs_bucket.arn
+}
+
+output "name" {
+  value = module.vpc_flow_logs_bucket.name
 }
