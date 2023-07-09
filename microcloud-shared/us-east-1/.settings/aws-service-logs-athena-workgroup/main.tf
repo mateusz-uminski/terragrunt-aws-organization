@@ -3,6 +3,6 @@ module "athena_workgroup" {
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
-  workgroup_name       = "main"
+  workgroup_name       = "aws-service-logs"
   bucket_owner         = var.account_id
 }
