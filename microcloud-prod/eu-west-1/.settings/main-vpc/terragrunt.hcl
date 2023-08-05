@@ -4,7 +4,8 @@ include "root" {
 
 dependencies {
   paths = [
-    "${get_path_to_repo_root()}/microcloud-shared/.settings/vpc-flow-logs-bucket"
+    "${get_path_to_repo_root()}/microcloud-shared/.settings/vpc-flow-logs-bucket",
+    "${get_path_to_repo_root()}/microcloud-shared/eu-west-1/.settings/main-transit-gateway",
   ]
 }
 
@@ -16,6 +17,15 @@ dependency "vpc_flow_logs_bucket" {
   }
 }
 
+dependency "transit_gateway" {
+  config_path = "${get_path_to_repo_root()}/microcloud-shared/eu-west-1/.settings/main-transit-gateway"
+
+  mock_outputs = {
+    id = ""
+  }
+}
+
 inputs = {
   vpc_flow_logs_s3_bucket_arn = dependency.vpc_flow_logs_bucket.outputs.arn
+  transit_gateway_id          = dependency.transit_gateway.outputs.id
 }
