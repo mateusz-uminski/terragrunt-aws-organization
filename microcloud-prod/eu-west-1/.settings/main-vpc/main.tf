@@ -8,10 +8,6 @@ variable "transit_gateway_id" {
   description = "Defined in the terragrunt.hcl file."
 }
 
-data "http" "my_ip" {
-  url = "https://checkip.amazonaws.com"
-}
-
 module "vpc" {
   source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.4.0"
 
@@ -30,8 +26,9 @@ module "vpc" {
   transit_gateway_id          = var.transit_gateway_id
 
   private_subnets_ingress_nacl = {
-    "10"  = "${chomp(data.http.my_ip.response_body)}/32"
-    "200" = "10.18.0.0/16", # main vpc eu-west-1 shared
+    "100" = "10.18.0.0/16", # main vpc eu-west-1 shared
+    "200" = "10.16.0.0/16", # main vpc us-east-1 shared
+    "220" = "10.28.0.0/16", # main vpc us-east-1 prod
   }
 }
 
