@@ -9,7 +9,7 @@ variable "transit_gateway_id" {
 }
 
 module "vpc" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.4.0"
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.4.1"
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
@@ -30,6 +30,10 @@ module "vpc" {
     "200" = "10.18.0.0/16", # main vpc eu-west-1 shared
     "210" = "10.24.0.0/16", # main vpc eu-west-1 nonprod
   }
+}
+
+output "vpc_id" {
+  value = module.vpc.vpc_id
 }
 
 output "tgw_attachment_id" {
