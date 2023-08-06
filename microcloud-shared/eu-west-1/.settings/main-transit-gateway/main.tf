@@ -5,7 +5,7 @@ module "transit_gateway" {
   org_abbreviated_name = var.org_abbreviated_name
   name                 = "main"
   asn                  = "65020"
-  route_table_names    = ["shared", "nonprod", "prod"]
+  route_table_names    = ["ue1-ew1", "shared", "nonprod", "prod"]
 }
 
 output "id" {
