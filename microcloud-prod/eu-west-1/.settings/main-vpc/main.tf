@@ -3,8 +3,13 @@ variable "vpc_flow_logs_s3_bucket_arn" {
   description = "Defined in the terragrunt.hcl file."
 }
 
+variable "transit_gateway_id" {
+  type        = string
+  description = "Defined in the terragrunt.hcl file."
+}
+
 module "vpc" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.3.0"
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.4.0"
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
@@ -17,6 +22,16 @@ module "vpc" {
   storage_subnets = ["10.30.128.0/20", "10.30.144.0/20", "10.30.160.0/20"]
 
   # optional variables
-  vpc_flow_logs_s3_bucket_arn  = var.vpc_flow_logs_s3_bucket_arn
-  private_subnets_ingress_nacl = {}
+  vpc_flow_logs_s3_bucket_arn = var.vpc_flow_logs_s3_bucket_arn
+  transit_gateway_id          = var.transit_gateway_id
+
+  private_subnets_ingress_nacl = {
+    "100" = "10.18.0.0/16", # main vpc eu-west-1 shared
+    "200" = "10.16.0.0/16", # main vpc us-east-1 shared
+    "220" = "10.28.0.0/16", # main vpc us-east-1 prod
+  }
+}
+
+output "tgw_attachment_id" {
+  value = module.vpc.tgw_attachment_id
 }
