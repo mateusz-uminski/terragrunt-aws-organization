@@ -9,7 +9,7 @@ variable "transit_gateway_id" {
 }
 
 module "vpc" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.4.1"
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.5.1"
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
@@ -23,6 +23,7 @@ module "vpc" {
 
   # optional variables
   vpc_flow_logs_s3_bucket_arn = var.vpc_flow_logs_s3_bucket_arn
+  domain_name                 = "ue1.shared.corp.microcloud.com"
   transit_gateway_id          = var.transit_gateway_id
 
   private_subnets_ingress_nacl = {
