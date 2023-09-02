@@ -19,7 +19,7 @@ dependency "route53_private_zones" {
   }
 }
 
-dependency "main_vpc_ue1_prod" {
+dependency "main_vpc_ue1_nonprod" {
   config_path = "${get_path_to_repo_root()}/microcloud-nonprod/us-east-1/.settings/main-vpc"
 
   mock_outputs = {
@@ -27,7 +27,7 @@ dependency "main_vpc_ue1_prod" {
   }
 }
 
-dependency "main_vpc_ew1_prod" {
+dependency "main_vpc_ew1_nonprod" {
   config_path = "${get_path_to_repo_root()}/microcloud-nonprod/eu-west-1/.settings/main-vpc"
 
   mock_outputs = {
@@ -41,11 +41,11 @@ inputs = {
 
   vpcs = {
     "main_vpc_ue1" = {
-      "vpc_id" = dependency.main_vpc_ue1_prod.outputs.vpc_id
+      "vpc_id" = dependency.main_vpc_ue1_nonprod.outputs.vpc_id
       "region" = "us-east-1"
     },
     "main_vpc_ew1" = {
-      "vpc_id" = dependency.main_vpc_ew1_prod.outputs.vpc_id
+      "vpc_id" = dependency.main_vpc_ew1_nonprod.outputs.vpc_id
       "region" = "eu-west-1"
     },
   }
