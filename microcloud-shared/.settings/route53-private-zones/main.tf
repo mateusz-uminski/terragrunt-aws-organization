@@ -52,7 +52,7 @@ module "ue1_dev_corp_microcloud_com" {
   vpcs      = var.vpcs
 
   # optional variables
-  # external_vpcs = var.external_vpcs_dev
+  external_vpcs = var.external_vpcs_dev
 }
 
 module "ew1_dev_corp_microcloud_com" {
@@ -63,7 +63,7 @@ module "ew1_dev_corp_microcloud_com" {
   vpcs      = var.vpcs
 
   # optional variables
-  # external_vpcs = var.external_vpcs_dev
+  external_vpcs = var.external_vpcs_dev
 }
 
 output "ue1_prod_corp_microcloud_com_zone_id" {

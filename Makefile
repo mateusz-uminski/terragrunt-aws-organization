@@ -1,3 +1,8 @@
+.PHONY: lint
+lint:
+	terraform fmt -check -recursive
+	terragrunt hclfmt hclfmt --terragrunt-check
+
 .PHONY: clean
 clean: remove-cache remove-locks
 

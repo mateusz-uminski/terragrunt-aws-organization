@@ -1,5 +1,5 @@
 module "ec2" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//ec2?ref=ec2/v0.1.0"
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//ec2?ref=ec2/v0.1.1"
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
