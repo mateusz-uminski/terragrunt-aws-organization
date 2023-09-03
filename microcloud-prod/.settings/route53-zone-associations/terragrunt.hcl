@@ -14,8 +14,10 @@ dependency "route53_private_zones" {
   config_path = "${get_path_to_repo_root()}/microcloud-shared/.settings/route53-private-zones"
 
   mock_outputs = {
-    ue1_prod_corp_microcloud_com_zone_id = ""
-    ew1_prod_corp_microcloud_com_zone_id = ""
+    ue1_shared_corp_microcloud_com_zone_id = ""
+    ew1_shared_corp_microcloud_com_zone_id = ""
+    ue1_prod_corp_microcloud_com_zone_id   = ""
+    ew1_prod_corp_microcloud_com_zone_id   = ""
   }
 }
 
@@ -36,8 +38,10 @@ dependency "main_vpc_ew1_prod" {
 }
 
 inputs = {
-  ue1_prod_corp_microcloud_com_zone_id = dependency.route53_private_zones.outputs.ue1_prod_corp_microcloud_com_zone_id
-  ew1_prod_corp_microcloud_com_zone_id = dependency.route53_private_zones.outputs.ew1_prod_corp_microcloud_com_zone_id
+  ue1_shared_corp_microcloud_com_zone_id = dependency.route53_private_zones.outputs.ue1_shared_corp_microcloud_com_zone_id
+  ew1_shared_corp_microcloud_com_zone_id = dependency.route53_private_zones.outputs.ew1_shared_corp_microcloud_com_zone_id
+  ue1_prod_corp_microcloud_com_zone_id   = dependency.route53_private_zones.outputs.ue1_prod_corp_microcloud_com_zone_id
+  ew1_prod_corp_microcloud_com_zone_id   = dependency.route53_private_zones.outputs.ew1_prod_corp_microcloud_com_zone_id
 
   vpcs = {
     "main_vpc_ue1" = {
