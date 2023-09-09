@@ -8,11 +8,11 @@ on:
 
 jobs:
   terraform-fmt:
-    uses: mateusz-uminski/github-actions-shared-workflows/.github/workflows/terraform-lint-fmt.yaml@main
+    uses: mateusz-uminski/github-actions/.github/workflows/terraform-lint-fmt.yaml@main
     with:
       terraform_version: 1.3.3
 
   terragrunt-hclfmt:
-    uses: mateusz-uminski/github-actions-shared-workflows/.github/workflows/terragrunt-lint-hclfmt.yaml@main
+    uses: mateusz-uminski/github-actions/.github/workflows/terragrunt-lint-hclfmt.yaml@main
     with:
       terragrunt_version: 0.39.2
