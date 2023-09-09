@@ -1,5 +1,5 @@
 module "ec2" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//ec2?ref=ec2/v0.1.1"
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//ec2?ref=ec2/v0.3.0"
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
@@ -15,7 +15,17 @@ module "ec2" {
   subnet_name = "mcd-main-private-sn1-prod"
 
   # optional variables
-  assign_public_ip = false
+  assign_public_ip           = false
+  instance_profile_name      = ""
+  enable_detailed_monitoring = false
+
+  root_ebs_size  = 0
+  additional_ebs = {}
+
+  user_data = <<-EOF
+    #! /bin/bash
+    touch /helloworld.txt
+  EOF
 
   additional_security_groups = []
   allowed_ingress_cidrs      = []
