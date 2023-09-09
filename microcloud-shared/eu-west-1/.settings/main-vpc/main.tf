@@ -9,7 +9,7 @@ variable "transit_gateway_id" {
 }
 
 module "vpc" {
-  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.5.1"
+  source = "git::https://github.com/mateusz-uminski/terraform-aws-modules//vpc?ref=vpc/v0.5.2"
 
   # required variables
   org_abbreviated_name = var.org_abbreviated_name
