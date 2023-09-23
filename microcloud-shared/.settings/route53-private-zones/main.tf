@@ -92,7 +92,7 @@ output "ue1_shared_corp_microcloud_com_zone_id" {
   value = module.ue1_shared_corp_microcloud_com.zone_id
 }
 
-output "ew1_pshared_corp_microcloud_com_zone_id" {
+output "ew1_shared_corp_microcloud_com_zone_id" {
   value = module.ew1_shared_corp_microcloud_com.zone_id
 }
 
