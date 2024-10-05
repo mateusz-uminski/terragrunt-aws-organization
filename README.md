@@ -13,6 +13,9 @@ Enjoy!
 # What is AnyCompany?
 AnyCompany (AC) is a fictional Software as a Service (Saas) company to demonstrate sample use cases.
 
+- [Organization design](docs/01-organization-design.md)
+- [Network design](docs/02-network-design.md)
+
 
 # Requirements
 1. Terraform version ~> 1.3.3
@@ -42,11 +45,6 @@ AnyCompany (AC) is a fictional Software as a Service (Saas) company to demonstra
 - `ac-app-prod-cloudadmin`
 9. Execute `cd anycompany-management/.settings/organization && terragrunt apply` and then attach AWS accounts to appropriate
 organizational units.
-
-
-# Organization: AnyCompany
-- [Organization design](docs/01-organization-design.md)
-- [Network design](docs/02-network-design.md)
 
 
 # Project structure
