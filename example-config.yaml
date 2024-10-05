@@ -1,0 +1,15 @@
+# This file should be used as an example when creating the config.yaml file.
+# The config.yaml file should only contain variables that we do not want to
+# accidentally commit.
+#
+# All variables listed in this file are required!
+
+# common variables
+ac_account_id_mgmt: "123456789012"
+ac_account_id_core_prod: "123456789012"
+ac_account_id_app_dev: "123456789012"
+ac_account_id_app_prod: "123456789012"
+
+# stack variables
+# anycompany-management/.settings/monthly-budget
+monthly_budget_email_address: recipient@domain.com
