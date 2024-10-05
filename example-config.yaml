@@ -5,11 +5,11 @@
 # All variables listed in this file are required!
 
 # common variables
-ac_account_id_mgmt: "123456789012"
-ac_account_id_core_prod: "123456789012"
-ac_account_id_app_dev: "123456789012"
-ac_account_id_app_prod: "123456789012"
+ac_mgmt_account_id: "123456789012"
+ac_core_prod_account_id: "123456789012"
+ac_app_dev_account_id: "123456789012"
+ac_app_prod_account_id: "123456789012"
 
 # stack variables
-# anycompany-management/.settings/monthly-budget
+# ac-mgmt/.settings/monthly-budget
 monthly_budget_email_address: recipient@domain.com
