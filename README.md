@@ -13,6 +13,9 @@ Enjoy!
 # What is AnyCompany?
 AnyCompany (AC) is a fictional Software as a Service (Saas) company to demonstrate sample use cases.
 
+- [Organization design](docs/01-organization-design.md)
+- [Network design](docs/02-network-design.md)
+
 
 # Requirements
 1. Terraform version ~> 1.3.3
@@ -23,12 +26,12 @@ AnyCompany (AC) is a fictional Software as a Service (Saas) company to demonstra
 # How to use?
 1. Create `config.yaml` file in the project's root directory according to the `example-config.yaml`.
 2. Follow steps from [How to prepare an AWS Organization?](#how-to-prepare-an-aws-organization?).
-3. Execute `terragrunt run-all anycompany-management/.settings`
+3. Execute `terragrunt run-all ac-mgmt/.settings`
 
 
 # How to prepare an AWS Organization?
 1. Create at least 4 AWS accounts: one for the management account, one for shared/central services such as IAM and Route53,
- one nonprod account and one prod account.
+ one dev account and one prod account.
 2. Configure MFA on each account.
 3. Create an AWS Organization on management account, set consolidated billing and invite other accounts to the organization.
 4. Enable SCP in the organization.
@@ -36,17 +39,12 @@ AnyCompany (AC) is a fictional Software as a Service (Saas) company to demonstra
 6. Configure MFA for each cloudadmin user.
 7. Generate AWS_ACCESS_KEY_ID and AWS_ACCESS_SECRET_KEY for each cloudadmin user.
 8. Configure the following profiles in `~/.aws/credentials` and `~/.aws/config`:
-- `ac-management-cloudadmin`
+- `ac-mgmt-cloudadmin`
 - `ac-core-prod-cloudadmin`
+- `ac-app-dev-cloudadmin`
 - `ac-app-prod-cloudadmin`
-- `ac-app-prod-cloudadmin`
-9. Execute `cd anycompany-management/.settings/organization && terragrunt apply` and then attach AWS accounts to appropriate
+9. Execute `cd ac-mgmt/.settings/organization && terragrunt apply` and then attach AWS accounts to appropriate
 organizational units.
-
-
-# Organization: AnyCompany
-- [Organization design](docs/01-organization-design.md)
-- [Network design](docs/02-network-design.md)
 
 
 # Project structure
