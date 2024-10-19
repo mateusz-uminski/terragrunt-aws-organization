@@ -14,7 +14,7 @@ module "vpc" {
   # required variables
   org_code     = var.org_code
   project_code = var.project_code
-  env_code     = "prod"
+  env_code     = var.environment_code
   vpc_name     = "main"
   vpc_cidr     = "10.24.0.0/16"
 
