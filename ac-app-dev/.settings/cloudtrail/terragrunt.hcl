@@ -17,8 +17,8 @@ dependency "cloudtrail_bucket" {
 }
 
 inputs = {
-  environment_name = "production"
-  environment_code = "prod"
+  environment_name = "development"
+  environment_code = "dev"
 
   cloudtrail_s3_bucket_name = dependency.cloudtrail_bucket.outputs.bucket_name
 }
