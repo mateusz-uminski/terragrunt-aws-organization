@@ -17,8 +17,8 @@ dependency "route53_private_zone" {
 }
 
 inputs = {
-  environment_name = "development"
-  environment_code = "dev"
+  environment_name = "production"
+  environment_code = "prod"
 
   hosted_zone_id = dependency.route53_private_zone.outputs.dev_euw1_anycompany_internal_zone_id
 }

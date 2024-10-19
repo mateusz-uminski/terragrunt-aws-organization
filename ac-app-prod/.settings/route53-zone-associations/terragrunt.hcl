@@ -36,8 +36,8 @@ dependency "main_vpc_euw1_app_prod" {
 }
 
 inputs = {
-  environment_name = "development"
-  environment_code = "dev"
+  environment_name = "production"
+  environment_code = "prod"
 
   prod_use1_anycompany_internal_zone_id = dependency.route53_private_zones.outputs.prod_use1_anycompany_internal_zone_id
   prod_euw1_anycompany_internal_zone_id = dependency.route53_private_zones.outputs.prod_euw1_anycompany_internal_zone_id
