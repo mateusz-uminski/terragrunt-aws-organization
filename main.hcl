@@ -22,7 +22,7 @@ locals {
     locals = {
       project_name   = "infrastructure"
       project_code   = "infra"
-      cost_center_id = "0001"
+      cost_center_id = "00001"
     }
   })
   project_name   = local.project_vars.locals.project_name
